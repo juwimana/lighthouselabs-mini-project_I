@@ -1,0 +1,7 @@
+### Motivation
+* Learn how to work with `API Documentation` (in this case, [Transport of London Unified API](https://api.tfl.gov.uk/))
+* Practice handling of `complex list and dictionaries in Python`
+
+### Note:
+* `Each task` is explicitly defined by the header of each expander
+* In each expander are the `results` and important details (for example, API Functions used)
