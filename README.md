@@ -1,6 +1,6 @@
 # Lighthouse Labs Mini Project I
 
-Welcome to my first **Lighthouse LabsMini Project**!! 
+Welcome to my first **Lighthouse Labs Mini Project**!! 
 
 ## Transport of London
 
