@@ -253,10 +253,16 @@ def get_journey_plan(mode_1,mode_2):
 		 task_6.write(f"{res.status_code} Error")
 	else:
 		journey_plan_bus = res_mode_1.json()
-		bus_duration = journey_plan_bus['journeys'][0]['duration']
+		journey_bus_duration = []
+		for journey_bus in journey_plan_bus['journeys']:
+    		journey_bus_duration.append(int(journey_bus['duration']))
+		bus_duration = journey_bus_duration.min()
 
 		journey_plan_tube = res_mode_2.json()
-		tube_duration = journey_plan_tube['journeys'][0]['duration']
+		journey_tube_duration = []
+		for journey_bus in journey_plan_bus['journeys']:
+    		journey_tube_duration.append(int(journey_bus['duration']))
+		tube_duration = journey_tube_duration.min()
 
 	return (bus_duration, tube_duration,journey_plan_bus)
 
