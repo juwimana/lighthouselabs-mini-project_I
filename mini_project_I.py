@@ -55,9 +55,8 @@ def main():
 	task_3.write(get_bikepoints()[3])
 	task_3.markdown(f"<h4>Number of BikePoints operated by Transfer for London: {get_bikepoints()[0]}</h4><br>", 
 					unsafe_allow_html=True)
-	task_3.markdown(f"<h4>Full Docks: {get_bikepoints()[1]}</h4><br>", unsafe_allow_html=True)
-	task_3.markdown(f"<h4>Empty Docks: {get_bikepoints()[2]}</h4><br>", unsafe_allow_html=True)
-	task_3.markdown(f"<h4>Total Docks: {get_bikepoints()[0] + get_bikepoints()[1]}</h4><br>",unsafe_allow_html=True)
+	task_3.markdown(f"<h4>Total Docks: {get_bikepoints()[1]}</h4><br>", unsafe_allow_html=True)
+	#task_3.markdown(f"<h4>Empty Docks: {get_bikepoints()[2]}</h4><br>", unsafe_allow_html=True)
 
 	##Task 4
 	task_4.write("API GET: https://api.tfl.gov.uk/Line/Mode/tube,bus")
@@ -164,21 +163,24 @@ def get_bikepoints():
 		task_3.write(f"{res.status_code} Error")
 	else:
 		bikepoints = []
-		empty_docks = 0
-		full_docks = 0
+		empty_docks = []
+		broken_docks = []
+		full_docks = []
+
 		json_file = res.json()
 		for bikepoint in json_file:
 		    bikepoints.append(int(bikepoint['id'].split('_')[1]))
 
 		    for property_desc in bikepoint['additionalProperties']:
 		        if property_desc['key'] == 'NbDocks':
-		            full_docks +=1
+		            full_docks.append(int(property_desc['value']))
 		        elif property_desc['key'] == 'NbEmptyDocks':
-		        	empty_docks += 1 
+		        	empty_docks.append(int(property_desc['value']))
 		        else:
 		            pass
 
-	return (len(bikepoints),full_docks,empty_docks,json_file)
+
+	return (len(bikepoints),sum(full_docks),sum(empty_docks),json_file)
 
 st.cache(allow_output_mutation=True)
 def get_tube_bus_lines():
