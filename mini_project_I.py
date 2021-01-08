@@ -20,7 +20,7 @@ def main():
 
 	#####T-LAMP App Layout
 	###Main page title: HTML Formatting Implemented
-	html_main_page_title = "<div class='shadow p-3 mb-5 bg-white rounded' style='text-allign:center'><h2 style='text-align:left; font-weight:550;'><b>Transport of London API Mini Project (T-LAMP)</b></h2></div>"
+	html_main_page_title = "<div class='shadow p-3 mb-5 bg-white rounded' style='text-allign:center'><h2 style='text-align:left; font-weight:550;'>Transport of London API Mini Project (T-LAMP)</h2></div>"
 	st.markdown(html_main_page_title,unsafe_allow_html=True)
 
 	####Main Page Content
