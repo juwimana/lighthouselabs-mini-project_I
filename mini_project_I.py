@@ -24,7 +24,8 @@ def main():
 	st.markdown(html_main_page_title,unsafe_allow_html=True)
 
 	####Main Page Content
-	st.markdown(motivation())
+	text = open("motivation.txt",'r').read()
+	st.markdown(text)
 	
 	#### Task Header
 	st.markdown(f"<div class='shadow p-3 mb-5 bg-white rounded'><h4 style='text-align:center;font-weight:600;'>T-LAMP Tasks</h4></div>",unsafe_allow_html=True)
@@ -98,12 +99,6 @@ def main():
 # 	url_append = f'?app_id={app_id}&app_key={app_key}' 
 
 # 	return url_append
-
-st.cache(allow_output_mutation=True)
-def motivation():
-		markdown = r"C:\Users\jeanm\Documents\data_bootcamp\week_1\d4-day_4\mini-project-I\markdown"
-		text = open(os.path.join(markdown,r"motivation.txt"),'r').read()
-		return text
 
 st.cache(allow_output_mutation=True)
 def get_air_quality():
