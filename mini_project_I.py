@@ -261,7 +261,7 @@ def get_journey_plan(mode_1,mode_2):
 
 		journey_plan_tube = res_mode_2.json()
 		journey_tube_duration = []
-		for journey_bus in journey_plan_bus['journeys']:
+		for journey_bus in journey_plan_tube['journeys']:
 			journey_tube_duration.append(int(journey_bus['duration']))
 		tube_duration = min(journey_tube_duration)
 
